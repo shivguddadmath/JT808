@@ -96,7 +96,7 @@ namespace JT808.Protocol.MessageBody
             }
             else if (reader.Version == JT808Version.JTT2013)
             {
-                if (reader.ReadCurrentRemainContentLength() > 33)
+                if (reader.ReadCurrentRemainContentLength() > 32)
                 {
                     jT808_0X0100.MakerId = reader.ReadString(5);
                     jT808_0X0100.TerminalModel = reader.ReadString(20);
@@ -170,7 +170,7 @@ namespace JT808.Protocol.MessageBody
             else if (reader.Version == JT808Version.JTT2013)
             {
                 var length = reader.ReadCurrentRemainContentLength();
-                if (length > 33)
+                if (length > 32)
                 {
                     ReadOnlySpan<byte> midSpan = reader.ReadVirtualArray(5);
                     jT808_0X0100.MakerId = reader.ReadString(5);
